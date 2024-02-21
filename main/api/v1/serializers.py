@@ -4,7 +4,7 @@ from main.models import Image, Message, File
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
-        fields = ['id', 'image']
+        fields = '__all__'
 
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
