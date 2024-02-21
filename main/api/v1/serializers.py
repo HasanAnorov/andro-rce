@@ -9,7 +9,7 @@ class ImageSerializer(serializers.ModelSerializer):
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = '__all__'
+        fields = ['id', 'message', 'created', 'updated']
 
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
