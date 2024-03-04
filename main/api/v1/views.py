@@ -46,7 +46,7 @@ class MessageAPIView(APIView):
 class FileAPIView(APIView):
     def get(self, request):
         files = File.objects.all()
-        serializer = MessageSerializer(files, many = True)
+        serializer = FileSerializer(files, many = True)
         return Response(serializer.data)
     def post(self, request):
         serializer = FileSerializer(data=request.data)
