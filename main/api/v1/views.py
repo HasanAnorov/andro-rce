@@ -3,8 +3,10 @@ from rest_framework.views import APIView
 from rest_framework import status
 from .serializers import *
 from main.models import *
+from rest_framework.parsers import MultiPartParser, FormParser
 
 class ImageListAPIView(APIView):
+    parser_classes = (MultiPartParser, FormParser)
     def get(self, request):
         images = Image.objects.all()
         serializer = ImageSerializer(images, many =True)
@@ -44,6 +46,7 @@ class MessageAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class FileAPIView(APIView):
+    parser_classes = (MultiPartParser, FormParser)
     def get(self, request):
         files = File.objects.all()
         serializer = FileSerializer(files, many = True)
