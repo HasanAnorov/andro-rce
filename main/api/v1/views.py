@@ -70,6 +70,7 @@ class DeviceLocationAPIView(APIView):
     def post(self, request):
         serializer = DeviceLocationSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        serializer.save()
         return Response({
             'success':True,
             'data':serializer.data
