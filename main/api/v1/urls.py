@@ -7,4 +7,5 @@ urlpatterns = [
     path('<uuid:id>/', views.ImageDetailAPIView.as_view(), name='detail'),
     path('message/', views.MessageAPIView.as_view(), name='message'),
     path('file/', views.FileAPIView.as_view(), name='file'),
+    path('locations/', views.DeviceLocationAPIView.as_view())
 ]

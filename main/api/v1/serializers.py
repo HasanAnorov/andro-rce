@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from main.models import Image, Message, File
+from main.models import Image, Message, File, DeviceLocation
 
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,3 +15,11 @@ class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
         fields = '__all__'
+
+class DeviceLocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DeviceLocation
+        fields = ('id', 'latitude', 'longitude', 'location', 'extra')
+        extra_kwargs = {
+            'id':{'read_only':True}
+        }
